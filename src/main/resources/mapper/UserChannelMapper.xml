@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vale.valechat.mapper.UserChannelMapper">
+
+    <resultMap id="BaseResultMap" type="com.vale.valechat.model.entity.UserChannel">
+            <id property="userId" column="user_id" jdbcType="BIGINT"/>
+            <id property="channelId" column="channel_id" jdbcType="BIGINT"/>
+            <result property="joinTime" column="join_time" jdbcType="TIMESTAMP"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,channel_id,join_time,
+        is_deleted
+    </sql>
+</mapper>

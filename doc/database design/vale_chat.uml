@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel</OriginalElement>
+  <nodes>
+    <node x="441.5" y="635.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel</node>
+    <node x="668.7910714285714" y="1216.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel_file</node>
+    <node x="1051.5839285714285" y="932.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.private_file</node>
+    <node x="728.7607142857141" y="382.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.workspace</node>
+    <node x="47.63571428571424" y="976.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user_channel</node>
+    <node x="610.5410714285713" y="910.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel_message</node>
+    <node x="10.5" y="668.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user_workspace</node>
+    <node x="1205.0113095238094" y="602.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.private_message</node>
+    <node x="785.8744047619047" y="0.0">4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user_channel" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel" relationship="REFERENCES">
+      <point x="102.75" y="-61.0" />
+      <point x="355.88571428571424" y="888.0" />
+      <point x="628.0" y="888.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel_file" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel_message" relationship="REFERENCES">
+      <point x="-121.25000000000011" y="-105.0" />
+      <point x="790.0410714285713" y="1190.0" />
+      <point x="807.5410714285713" y="1190.0" />
+      <point x="0.0" y="127.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel_file" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.workspace" relationship="REFERENCES">
+      <point x="121.24999999999989" y="-105.0" />
+      <point x="1032.5410714285713" y="1190.0" />
+      <point x="1015.0410714285713" y="1190.0" />
+      <point x="1015.0410714285713" y="580.0" />
+      <point x="929.2607142857141" y="580.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.private_message" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user" relationship="REFERENCES">
+      <point x="131.33333333333326" y="-127.0" />
+      <point x="1533.3446428571428" y="580.0" />
+      <point x="1433.125" y="580.0" />
+      <point x="1433.125" y="351.0" />
+      <point x="1112.2494047619048" y="351.0" />
+      <point x="139.8750000000001" y="160.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel_message" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user" relationship="REFERENCES">
+      <point x="131.33333333333337" y="-127.0" />
+      <point x="938.8744047619047" y="888.0" />
+      <point x="1194.5113095238096" y="888.0" />
+      <point x="1194.5113095238096" y="361.0" />
+      <point x="1318.375" y="361.0" />
+      <point x="1318.375" y="341.0" />
+      <point x="1018.9994047619047" y="341.0" />
+      <point x="46.625" y="160.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user" relationship="REFERENCES">
+      <point x="-93.25" y="-94.0" />
+      <point x="534.75" y="570.0" />
+      <point x="421.75" y="570.0" />
+      <point x="421.75" y="361.0" />
+      <point x="784.1357142857141" y="361.0" />
+      <point x="784.1357142857141" y="341.0" />
+      <point x="925.7494047619047" y="341.0" />
+      <point x="-46.625" y="160.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.private_file" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.private_message" relationship="REFERENCES">
+      <point x="121.25" y="-105.0" />
+      <point x="1415.3339285714285" y="888.0" />
+      <point x="1402.0113095238094" y="888.0" />
+      <point x="0.0" y="127.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.private_file" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.workspace" relationship="REFERENCES">
+      <point x="-121.25" y="-105.0" />
+      <point x="1172.8339285714285" y="878.0" />
+      <point x="1166.0523809523809" y="878.0" />
+      <point x="1166.0523809523809" y="580.0" />
+      <point x="929.2607142857141" y="580.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.workspace" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user" relationship="REFERENCES">
+      <point x="0.0" y="-83.0" />
+      <point x="929.2607142857141" y="361.0" />
+      <point x="784.1357142857141" y="361.0" />
+      <point x="784.1357142857141" y="341.0" />
+      <point x="925.7494047619047" y="341.0" />
+      <point x="-46.625" y="160.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.private_message" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.workspace" relationship="REFERENCES">
+      <point x="-131.33333333333348" y="-127.0" />
+      <point x="1270.6779761904759" y="580.0" />
+      <point x="929.2607142857141" y="580.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user_channel" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user" relationship="REFERENCES">
+      <point x="-102.75" y="-61.0" />
+      <point x="150.38571428571424" y="888.0" />
+      <point x="0.0" y="888.0" />
+      <point x="0.0" y="361.0" />
+      <point x="149.38571428571424" y="361.0" />
+      <point x="149.38571428571424" y="351.0" />
+      <point x="832.4994047619047" y="351.0" />
+      <point x="-139.875" y="160.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel_message" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.workspace" relationship="REFERENCES">
+      <point x="0.0" y="-127.0" />
+      <point x="807.5410714285713" y="888.0" />
+      <point x="825.0" y="888.0" />
+      <point x="825.0" y="580.0" />
+      <point x="929.2607142857141" y="580.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.workspace" relationship="REFERENCES">
+      <point x="93.25" y="-94.0" />
+      <point x="721.25" y="580.0" />
+      <point x="929.2607142857141" y="580.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user_workspace" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user" relationship="REFERENCES">
+      <point x="-102.75" y="-61.0" />
+      <point x="113.25" y="580.0" />
+      <point x="206.01071428571424" y="580.0" />
+      <point x="206.01071428571424" y="361.0" />
+      <point x="149.38571428571424" y="361.0" />
+      <point x="149.38571428571424" y="351.0" />
+      <point x="832.4994047619047" y="351.0" />
+      <point x="-139.875" y="160.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.user_workspace" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.workspace" relationship="REFERENCES">
+      <point x="102.75" y="-61.0" />
+      <point x="318.75" y="580.0" />
+      <point x="929.2607142857141" y="580.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel_message" target="4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel" relationship="REFERENCES">
+      <point x="-131.33333333333337" y="-127.0" />
+      <point x="676.2077380952379" y="888.0" />
+      <point x="628.0" y="888.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.4266943291839557" showDependencies="false" x="808.0000000000001" y="713.0" />
+  <SelectedNodes>
+    <node>4127d71f-9ca8-45b2-9a03-b107447195d0.TABLE:vale_chat.channel</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

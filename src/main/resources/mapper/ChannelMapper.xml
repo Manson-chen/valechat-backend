@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vale.valechat.mapper.ChannelMapper">
+
+    <resultMap id="BaseResultMap" type="com.vale.valechat.model.entity.Channel">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="channelName" column="channel_name" jdbcType="VARCHAR"/>
+            <result property="workspaceId" column="workspace_id" jdbcType="BIGINT"/>
+            <result property="masterId" column="master_id" jdbcType="BIGINT"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="channelType" column="channel_type" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,channel_name,workspace_id,
+        master_id,is_deleted,create_time,
+        update_time,channel_type
+    </sql>
+
+    <select id="getChannelByUser" resultType="com.vale.valechat.model.entity.Channel">
+        select c.*
+        from channel c
+        join (select channel_id from user_channel where user_id = #{userId} and is_deleted = 0) uc
+        on c.id = uc.channel_id
+        where workspace_id = #{workspaceId}
+    </select>
+
+    <select id="getChannelByOrg" resultType="com.vale.valechat.model.entity.Channel">
+        select c.*
+        from channel c
+        join (select channel_id from organization_channel where organization_id = #{organizationId} and is_deleted = 0) oc
+        on c.id = oc.channel_id
+        where workspace_id = #{workspaceId}
+    </select>
+</mapper>
+

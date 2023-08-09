@@ -1,0 +1,85 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+#    front-end: http://localhost:8080/api/XX);
+
+web:
+  root-path: /Users/jiandongchen/Pictures/ValeChat/ #D:/images
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 394339385991-rt5ck0nt16hmva0mctde1r1dv9csndba.apps.googleusercontent.com
+            client-secret: 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
+#            redirect-uri: https://www.baidu.com
+            scope: profile,email
+
+#        provider:
+#          google:
+#            authorization-uri: https://accounts.google.com/o/oauth2/auth
+#            token-uri: https://accounts.google.com/o/oauth2/token
+#            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vale_chat
+    username: root
+    # todo: change password
+    password: Qwertyuiop123
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/, file:${web.root-path}
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  # session 失效时间
+  session:
+    timeout: 86400
+#    #    # todo 有redis才加
+#    默认是none，表示存储在服务器
+    store-type: redis
+#  # redis 配置
+  redis:
+    port: 6379
+    host: localhost
+    database: 5
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: guest
+    username: guest
+
+#logging:
+#  level:
+#    root: DEBUG
+#    com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean: INFO
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  mapper-locations:
+    - classpath:mapper/*.xml
+
+mpp:
+  entityBasePath: com.vale.valechat.model.entity
+
+yuapi:
+  client:
+    access-key: clansvbg4i7gnmxqusswuyjiymglyrnx
+    secret-key: j12d5j3g0acbr60sm2bqwjbpy7rdvqho

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vale.valechat.mapper.PrivateFileMapper">
+
+    <resultMap id="BaseResultMap" type="com.vale.valechat.model.entity.PrivateFile">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="fileType" column="file_type" jdbcType="VARCHAR"/>
+            <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
+            <result property="uniqueName" column="file_name" jdbcType="VARCHAR"/>
+            <result property="fileUrl" column="file_url" jdbcType="VARCHAR"/>
+            <result property="filePath" column="file_path" jdbcType="VARCHAR"/>
+            <result property="messageId" column="message_id" jdbcType="BIGINT"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,file_type,file_name,unique_name,file_url
+        file_path,message_id,is_deleted,
+        create_time,update_time
+    </sql>
+
+    <select id="getChatFileByName" resultType="com.vale.valechat.model.vo.ChatFileListVO">
+        select pf.id, message_id, sender_id, sender_name, file_type, file_name, unique_name, pf.file_url, create_time
+        from private_file pf
+        join (select private_message.id, sender_id, user.user_name as sender_name from private_message
+                join user on sender_id = user.id
+                where ((sender_id = #{senderId} and receiver_id = #{receiverId}) or (sender_id = #{receiverId} and receiver_id = #{senderId})) and workspace_id = #{workspaceId}) msg
+            on pf.message_id = msg.id
+        where pf.file_name like #{fileName}
+        order by pf.create_time desc
+    </select>
+
+    <select id="getWorkspaceFileByName" resultType="com.vale.valechat.model.vo.ChatFileListVO">
+        select pf.id, message_id, sender_id, sender_name, file_type, file_name, unique_name, pf.file_url, create_time
+        from private_file pf
+        join (select private_message.id, sender_id, user.user_name as sender_name from private_message
+                join user on sender_id = user.id
+                where workspace_id = #{workspaceId}) msg
+          on pf.message_id = msg.id
+        where pf.file_name like #{fileName}
+        order by pf.create_time desc
+    </select>
+</mapper>

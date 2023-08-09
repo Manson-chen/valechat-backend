@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vale.valechat.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.vale.valechat.model.entity.User">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="userAccount" column="user_account" jdbcType="VARCHAR"/>
+            <result property="userPassword" column="user_password" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="TINYINT"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="userAvatar" column="user_avatar" jdbcType="VARCHAR"/>
+            <result property="userStatus" column="user_status" jdbcType="INTEGER"/>
+            <result property="userRole" column="user_role" jdbcType="INTEGER"/>
+            <result property="organizationId" column="organization_id" jdbcType="BIGINT"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_name,user_account,
+        user_password,gender,phone,
+        email,user_avatar,user_status,
+        user_role,organization_id,is_deleted,
+        create_time,update_time
+    </sql>
+
+    <select id="getUserInWorkspace" resultType="com.vale.valechat.model.vo.UserVO">
+        select u.*
+        from user u
+        join (select user_id from user_workspace where workspace_id = #{workspaceId}) uw
+        on u.id = uw.user_id ${ew.customSqlSegment}
+    </select>
+
+</mapper>

@@ -1,0 +1,117 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>private chat</title>
+        <script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+        <script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.0.min.js"
+                integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            var stompClient = null;
+
+            function setConnected(connected) {
+                document.getElementById("connect").disabled = connected;
+                document.getElementById("disconnect").disabled = !connected;
+                $("#response").html();
+            }
+
+            function connect() {
+                console.log("nihao")
+                var socket = new SockJS("http://localhost:8080/api/ws");
+                stompClient = Stomp.over(socket);
+                stompClient.heartbeat.outgoing = 20000;
+                // client will send heartbeats every 20000ms
+                stompClient.heartbeat.incoming = 0;
+                stompClient.connect({}, function (frame) {
+                    setConnected(true);
+                    // console.log('Connected: ' + frame);
+                    // console.log(document.getElementById('user').value)
+                    stompClient.subscribe('/user/' + document.getElementById('user').value + '/message', function (response) {
+                        var responseData = document.getElementById('responseData');
+                        var p = document.createElement('p');
+                        p.style.wordWrap = 'break-word';
+                        p.appendChild(document.createTextNode(response.body));
+                        responseData.appendChild(p);
+                    });
+                });
+            }
+
+            function disconnect() {
+                if (stompClient != null) {
+                    stompClient.disconnect();
+                }
+                setConnected(false);
+                console.log("Disconnected");
+
+            }
+
+            function sendMsg() {
+                var headers = {
+                    login: 'mylogin',
+                    passcode: 'mypasscode',
+// additional header
+                    'accessToken': 'HWPO325J9814GBHJF933'
+                };
+                var senderId = document.getElementById('user').value;
+                var receiverId = document.getElementById('receiverId').value;
+                var type = document.getElementById('type').value;
+                var content = document.getElementById('content').value;
+                var workspaceId = document.getElementById('workspaceId').value;
+                stompClient.send("/app/message/private", {'accessToken': 'HWPO325J9814GBHJF933'}, JSON.stringify({
+                    "senderId": senderId,
+                    "receiverId": receiverId,
+                    "type": type,
+                    "content": content,
+                    "workspaceId": workspaceId,
+                }));
+            }
+        </script>
+    </head>
+    <body notallow="disconnect()">
+        <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+            enabled. Please enable
+            Javascript and reload this page!</h2></noscript>
+        <div>
+            <h4><a href="http://localhost:8080/api/user/oauth/login">Login with Google</a></h4>
+        </div>
+        <div>
+            <div>
+                <labal>User connection</labal>
+                <input type="text" id="user"/>
+                <button id="connect" onclick="connect();">Connect</button>
+            </div>
+
+            <div>
+                <labal>Disconnect</labal>
+                <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
+            </div>
+
+            <div id="conversationDiv">
+                <div>
+                    <labal>receiverId</labal>
+                    <input type="text" id="receiverId"/>
+                </div>
+                <div>
+                    <labal>type</labal>
+                    <input type="text" id="type"/>
+                </div>
+                <div>
+                    <labal>content</labal>
+                    <input type="text" id="content"/>
+                </div>
+                <div>
+                    <labal>workspaceId</labal>
+                    <input type="text" id="workspaceId"/>
+                </div>
+                <button id="sendMsg" onclick="sendMsg();">Send</button>
+
+            </div>
+            <div>
+                <labal>接收到的消息:</labal>
+                <p id="responseData"></p>
+
+            </div>
+        </div>
+    </body>
+</html>
