@@ -10,7 +10,7 @@
 
 > 此项目是前后端分离项目，前端目前有待完善。。。
 >
-> 部署在准备中，待完善。。。
+> 部署准备中，待完善。。。
 >
 > 部分功能待完善。。。
 
@@ -86,11 +86,11 @@
 
 ### 注册与登录模块
 
-![image-20230811233419978](README.assets/image-20230811233419978.png)
+<img src="README.assets/image-20230811233419978.png" alt="image-20230811233419978" style="zoom:67%;" />
 
 ### AI 模块
 
-​	![image-20230811230916263](README.assets/image-20230811230916263.png)
+​	<img src="README.assets/image-20230811230916263.png" alt="image-20230811230916263" style="zoom:67%;" />
 
 
 
@@ -98,31 +98,31 @@
 
 - 文本 + 多文件发送：
 
-  ![image-20230811230658194](README.assets/image-20230811230658194.png)
+  <img src="README.assets/image-20230811230658194.png" alt="image-20230811230658194" style="zoom:67%;" />
 
 - Emoji
 
-  ![image-20230811231124885](README.assets/image-20230811231124885.png)
+  <img src="README.assets/image-20230811231124885.png" alt="image-20230811231124885" style="zoom:33%;" />
 
 - 历史消息和文件搜索：
 
-  ![image-20230811231351014](README.assets/image-20230811231351014.png)
+  <img src="README.assets/image-20230811231351014.png" alt="image-20230811231351014" style="zoom: 50%;" />
 
-  ![image-20230811231422327](README.assets/image-20230811231422327.png)
+  <img src="README.assets/image-20230811231422327.png" alt="image-20230811231422327" style="zoom:50%;" />
 
 - 群聊：
 
-  ![image-20230811231832564](README.assets/image-20230811231832564.png)
+  <img src="README.assets/image-20230811231832564.png" alt="image-20230811231832564" style="zoom:50%;" />
 
 - 组织聊天：
 
-  ![image-20230811233313369](README.assets/image-20230811233313369.png)
+  <img src="README.assets/image-20230811233313369.png" alt="image-20230811233313369" style="zoom:50%;" />
 
 ### 文件系统
 
 - 工作区文件搜索
 
-  ![image-20230811231555657](README.assets/image-20230811231555657.png)
+  <img src="README.assets/image-20230811231555657.png" alt="image-20230811231555657" style="zoom:50%;" />
 
 
 
