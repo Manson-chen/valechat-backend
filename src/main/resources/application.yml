@@ -83,3 +83,8 @@ yuapi:
   client:
     access-key: clansvbg4i7gnmxqusswuyjiymglyrnx
     secret-key: j12d5j3g0acbr60sm2bqwjbpy7rdvqho
+
+#api:
+#  client:
+#    access-key: 你的 access-key
+#    secret-key: 你的 secret-key
